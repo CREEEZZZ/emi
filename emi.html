@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dif{
+            margin: auto;
+            width: 50%;
+            border: 1px ;
+            padding: 10px;
+            padding-bottom: 30%;
+            padding-left: 35%;
+            
+        }
+        .but{
+            background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+        }
+        .hh{
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body bgcolor="teal">
+    <div class="dif">
+        <h1 class="hh">EMI Calculator</h1>
+        <input id="loanAmount" type="number" placeholder="Enter loan amount"><br><br>
+        <input id="interestRate" type="number" placeholder="Enter annual interest rate"><br><br>
+        <input id="loanPeriod" type="number" placeholder="Enter loan period in months"><br><br>
+        <button class="but" onclick="calculateEMI()">Calculate EMI</button>
+        <h2 class="hh" id="result"></h2>
+    </div>
+    <script>
+        function calculateEMI() {
+            var P = document.getElementById('loanAmount').value;
+            var r = document.getElementById('interestRate').value / 100 / 12;
+            var n = document.getElementById('loanPeriod').value;
+            var EMI = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            document.getElementById('result').innerHTML = "The EMI is " + EMI.toFixed(2);
+        }
+    </script>
+</body>
+</html>
